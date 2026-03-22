@@ -14,7 +14,8 @@ export default function App() {
     setCards([]);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/generate`, {
+      
+      const res = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),
