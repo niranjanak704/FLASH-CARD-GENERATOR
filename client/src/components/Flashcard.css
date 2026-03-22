@@ -1,0 +1,106 @@
+.card-scene {
+  perspective: 1200px;
+  width: 100%;
+  height: 340px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: var(--card-face);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 2px 0 #c4bdb0, 0 4px 0 #b4ad9e, 0 8px 24px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  padding: 36px 40px;
+  transition: box-shadow 0.2s;
+}
+.card-scene:hover .card-face {
+  box-shadow: 0 4px 0 #c4bdb0, 0 8px 0 #b4ad9e, 0 16px 40px rgba(0,0,0,0.18);
+}
+
+/* Decorative corner marks */
+.card-face::before,
+.card-face::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--border);
+  border-style: solid;
+  opacity: 0.5;
+}
+.card-face::before { top: 12px; left: 12px; border-width: 1px 0 0 1px; }
+.card-face::after  { bottom: 12px; right: 12px; border-width: 0 1px 1px 0; }
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card-corner-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.card-front .card-corner-label { color: var(--muted); }
+.card-back  .card-corner-label { color: var(--accent2); }
+
+.card-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-text {
+  font-size: clamp(16px, 2.5vw, 22px);
+  line-height: 1.55;
+  text-align: center;
+  color: var(--ink);
+  font-weight: 400;
+}
+.card-back .card-text {
+  font-size: clamp(14px, 2vw, 18px);
+}
+
+.card-hint {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.hint-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-size: 9px;
+  color: var(--muted);
+}

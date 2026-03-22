@@ -1,0 +1,25 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #1a1814;
+  --paper: #f5f0e8;
+  --paper2: #ede7d9;
+  --card-face: #fdfaf4;
+  --accent: #c84b2f;
+  --accent2: #2a6b4f;
+  --muted: #8a8070;
+  --border: #d4cdc0;
+  --font-display: 'Lora', Georgia, serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+body {
+  font-family: var(--font-display);
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+}
